@@ -1,5 +1,6 @@
 
 
+
 def listtostring(list):
     str = ""
     for i in list:
@@ -62,7 +63,7 @@ if __name__ == '__main__':
     c = 0
     e = []
     for i in b:
-        d = (f"{i} {x[c]} ")
+        d = (f"{i} {x[c]}\n")
         c = c + 1
         e.append(d)
     e = listtostring(e)
