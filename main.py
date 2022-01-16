@@ -57,6 +57,6 @@ if __name__ == '__main__':
     f = open("hesla.txt", "w")
     d = zmena(b)
     e = zmena(c)
-    f.write(f"{(d)}_{x[0]}; {(e)}_{x[1]}")
+    f.write(f"{(d)}_{x[0]} {(e)}_{x[1]}")
     f = open("hesla.txt", "r")
     print(f.read())
