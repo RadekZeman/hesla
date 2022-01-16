@@ -1,4 +1,10 @@
-
+def zmena(a):
+    b = []
+    str1 = ""
+    for i in a:
+        b = ((chr(i)))
+        str1+=b
+    return(str1)
 
 def level(heslo):
     a = []
@@ -39,7 +45,7 @@ def level(heslo):
     print(xc, xd)
     x = [xc, xd]
     print(x)
-    return(x)
+    return(x,c,d)
 
 
 if __name__ == '__main__':
@@ -47,8 +53,10 @@ if __name__ == '__main__':
     a = [f.read()]
     for i in a:
         print(i)
-        level(i)
+        x,b,c = level(i)
     f = open("hesla.txt", "w")
-    f.write(i)
+    d = zmena(b)
+    e = zmena(c)
+    f.write(f"{(d)}_{x[0]} {(e)}_{x[1]}")
     f = open("hesla.txt", "r")
     print(f.read())
