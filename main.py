@@ -1,51 +1,53 @@
-def zmena(a):
-    b = []
-    str1 = ""
-    for i in a:
-        b = ((chr(i)))
-        str1+=b
-    return(str1)
+
+
+def listtostring(list):
+    str = ""
+    for i in list:
+        str += i
+    return(str)
+
+
+def level1(a, delka1, delka2):
+    z = 0
+    y = 0
+    x = 0
+    for i in a[delka1: delka2]:
+        if 65 <= i <= 90:
+            z = 1
+        if 97 <= i <= 122:
+            y = 1
+        if z == 1 and y == 1:
+            x = 1
+    return(x)
+
 
 def level(heslo):
     a = []
-    for i in heslo:
-        b = ord(i)
-        print(b)
-        a.append(b)
+    b = heslo.split()
+    delky = []
+    print(b)
+    for i in b:
+        print(i)
+        for j in i:
+            z = ord(j)
+            print(z)
+            a.append(z)
+        delky.append(len(i))
     print(a)
-    c = []
-    d = []
-    z = c
-    for j in a:
-        if j == 10:
-            z = d
-        else:
-            z.append(j)
-    print(c, d)
-    xc = 0
-    w = 0
-    v = 0
-    for k in c:
-        if 65 <= k <= 90:
-            w = 1
-        if 97 <= k <= 122:
-            v = 1
-        if w == 1 and v == 1:
-            xc = 1
-    xd = 0
-    w1 = 0
-    v1 = 0
-    for l in d:
-        if 65 <= l <= 90:
-            w1 = 1
-        if 97 <= l <= 122:
-            v1 = 1
-        if w1 == 1 and v1 == 1:
-            xd = 1
-    print(xc, xd)
-    x = [xc, xd]
+    print(delky)
+    x = []
+    c = 0
+    d = delky[0]
+    e = -1
+    while e < len(delky) - 1:
+        x1 = level1(a, c, d)
+        e = e + 1
+        c = c + delky[e]
+        d = d + delky[e]
+        print(x1)
+        x.append(x1)
     print(x)
-    return(x,c,d)
+    return(x)
 
 
 if __name__ == '__main__':
@@ -53,10 +55,18 @@ if __name__ == '__main__':
     a = [f.read()]
     for i in a:
         print(i)
-        x,b,c = level(i)
+        x = level(i)
+    a = listtostring(a)
+    b = a.split()
+    print(b)
+    c = 0
+    e = []
+    for i in b:
+        d = (f"{i} {x[c]} ")
+        c = c + 1
+        e.append(d)
+    e = listtostring(e)
     f = open("hesla.txt", "w")
-    d = zmena(b)
-    e = zmena(c)
-    f.write(f"{(d)}_{x[0]} {(e)}_{x[1]}")
+    f.write(e)
     f = open("hesla.txt", "r")
     print(f.read())
