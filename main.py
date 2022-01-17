@@ -1,6 +1,5 @@
 
 
-
 def listtostring(list):
     str = ""
     for i in list:
@@ -9,16 +8,30 @@ def listtostring(list):
 
 
 def level1(a, delka1, delka2):
-    z = 0
-    y = 0
+    X = 5
+    if X <= 4:
+        b = X
+    else:
+        b = 4
+    velkapismena = 0
+    pismena = 0
+    cisla = 0
+    znaky = 0
     x = 0
     for i in a[delka1: delka2]:
         if 65 <= i <= 90:
-            z = 1
+            velkapismena = 1
         if 97 <= i <= 122:
-            y = 1
-        if z == 1 and y == 1:
-            x = 1
+            pismena = 1
+        if 48 <= i <= 57:
+            cisla = 1
+        if 32 <= i < 48 or 57 < i < 65 or 90 < i < 97 or 122 < i <= 126:
+            znaky = 1
+        if velkapismena == 1 and pismena == 1:
+            if b <= velkapismena + pismena + cisla + znaky:
+                x = 2
+            else:
+                x = 1
     return(x)
 
 
