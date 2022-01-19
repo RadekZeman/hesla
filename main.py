@@ -8,9 +8,10 @@ def listtostring(list):
 
 
 def level1(a, delka1, delka2):
-    X = 5
-    if X <= 4:
-        b = X
+    print(f"od {delka1} do {delka2}")
+    parametr = 4
+    if parametr < 4:
+        b = parametr
     else:
         b = 4
     velkapismena = 0
@@ -53,11 +54,19 @@ def level(heslo):
     c = 0
     d = delky[0]
     e = -1
-    while e < len(delky) - 1:
-        x1 = level1(a, c, d)
+    g = 1
+    f = 0
+    for i in a:
+        print(f"{f}: {i}")
+        f = f + 1
+    while g <= len(delky):
+        print(f"g = {g}")
+        x1 = level1(a, c, d - 1)
         e = e + 1
         c = c + delky[e]
-        d = d + delky[e]
+        if g < len(delky):
+          d = d + delky[g]
+        g = g + 1
         print(x1)
         x.append(x1)
     print(x)
