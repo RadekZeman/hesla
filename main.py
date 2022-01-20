@@ -19,18 +19,49 @@ def level1(a, delka1, delka2):
     cisla = 0
     znaky = 0
     x = 0
+    c = []
+    d = 0
+    indexpismena = 0
+    indexcisla = 0
+    indexznaky = 0
+    c = 0
+    d = 0
+    e = 0
     for i in a[delka1: delka2]:
         if 65 <= i <= 90:
             velkapismena = 1
+            indexpismena += 1
+            indexcisla = 0
+            indexznaky = 0
+            if parametr < indexpismena:
+                c = 1
         if 97 <= i <= 122:
             pismena = 1
+            indexpismena += 1
+            indexcisla = 0
+            indexznaky = 0
+            if parametr < indexpismena:
+                c = 1
         if 48 <= i <= 57:
             cisla = 1
+            indexpismena = 0
+            indexcisla += 1
+            indexznaky = 0
+            if parametr < indexcisla:
+                d = 1
         if 32 <= i < 48 or 57 < i < 65 or 90 < i < 97 or 122 < i <= 126:
             znaky = 1
+            indexpismena = 0
+            indexcisla = 0
+            indexznaky += 1
+            if parametr < indexznaky:
+                e = 1
         if velkapismena == 1 and pismena == 1:
             if b <= velkapismena + pismena + cisla + znaky:
-                x = 2
+                if c == 1 or d == 1 or e == 1:
+                    x = 2
+                else:
+                    x = 3
             else:
                 x = 1
     return(x)
@@ -85,7 +116,7 @@ if __name__ == '__main__':
     c = 0
     e = []
     for i in b:
-        d = (f"{i} {x[c]}\n")
+        d = (f"{i}_{x[c]}\n")
         c = c + 1
         e.append(d)
     e = listtostring(e)
