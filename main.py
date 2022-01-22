@@ -9,11 +9,6 @@ def listtostring(list):
 
 def level1(a, delka1, delka2):
     print(f"od {delka1} do {delka2}")
-    parametr = 4
-    if parametr < 4:
-        b = parametr
-    else:
-        b = 4
     velkapismena = 0
     pismena = 0
     cisla = 0
@@ -33,31 +28,31 @@ def level1(a, delka1, delka2):
             indexpismena += 1
             indexcisla = 0
             indexznaky = 0
-            if parametr < indexpismena:
+            if 3 < indexpismena:
                 c = 1
         if 97 <= i <= 122:
             pismena = 1
             indexpismena += 1
             indexcisla = 0
             indexznaky = 0
-            if parametr < indexpismena:
+            if 3 < indexpismena:
                 c = 1
         if 48 <= i <= 57:
             cisla = 1
             indexpismena = 0
             indexcisla += 1
             indexznaky = 0
-            if parametr < indexcisla:
+            if 3 < indexcisla:
                 d = 1
         if 32 <= i < 48 or 57 < i < 65 or 90 < i < 97 or 122 < i <= 126:
             znaky = 1
             indexpismena = 0
             indexcisla = 0
             indexznaky += 1
-            if parametr < indexznaky:
+            if 3 < indexznaky:
                 e = 1
         if velkapismena == 1 and pismena == 1:
-            if b <= velkapismena + pismena + cisla + znaky:
+            if 4 <= velkapismena + pismena + cisla + znaky:
                 if c == 1 or d == 1 or e == 1:
                     x = 2
                 else:
